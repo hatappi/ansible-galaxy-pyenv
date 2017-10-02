@@ -1,3 +1,11 @@
 ---
 - include: Debian.yml
   when: ansible_os_family == "Debian"
+- include: RedHat.yml
+  when: ansible_os_family == "RedHat"
+
+- include: user_install.yml
+  when: pyenv_env == "user"
+- include: system_install.yml
+  when: pyenv_env == "system"
+
